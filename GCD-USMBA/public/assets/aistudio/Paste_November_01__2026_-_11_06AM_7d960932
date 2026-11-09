@@ -1,0 +1,1058 @@
+# PROJECT: GCD USMBA — Advanced Doctoral Management Platform
+
+## 1. YOUR ROLE
+
+Act as a senior full-stack developer, UI/UX designer, software architect, and database designer.
+
+Build a complete, modern, functional web application that represents an improved version of the GCD (Gestion du Cycle Doctoral) platform for USMBA (Université Sidi Mohamed Ben Abdellah, Fez, Morocco).
+
+I have attached a PDF document named `schema_analyse_GCD_problèmes_solutions.pdf`.
+
+This PDF contains 36 activities, the actors involved, the potential problems associated with each activity, and the proposed digital solutions.
+
+Your primary objective is to transform these 36 proposed solutions into a coherent, usable, and functional web application.
+
+Do not simply create a static landing page or a visual prototype. Build an interactive application with working navigation, forms, dashboards, role-based interfaces, data management, validation, notifications, and realistic workflows.
+
+The application is an academic project and a proposed improved version of the GCD platform, not an official USMBA service.
+
+## 2. IMPORTANT REQUIREMENTS
+
+Before coding:
+
+1. Analyze the entire attached PDF.
+2. Extract all 36 activities, preserving their original meaning and associated solutions.
+3. Map each activity to a concrete application feature.
+4. Identify the actors, permissions, data, pages, and workflows needed.
+5. Design a consistent application architecture.
+6. Implement the application progressively, ensuring that the features work together.
+
+Do not omit any of the 36 activities.
+
+Do not replace the solutions in the PDF with unrelated features.
+
+You may add complementary features when they improve usability, security, accessibility, or consistency, but the 36 original solutions must remain the foundation of the application.
+
+## 3. TECHNOLOGY STACK
+
+Build the application using:
+
+- React
+- TypeScript
+- Vite, if supported by the environment
+- Tailwind CSS for styling
+- Lucide React for icons
+- React Router for navigation
+- A suitable form validation solution
+- A database and authentication backend when supported
+
+Prefer Supabase for database storage and authentication if the environment supports its integration.
+
+If Supabase is unavailable, build a working local prototype using localStorage and a well-organized service layer so that the application can later be connected to a real backend.
+
+Do not pretend that localStorage provides secure authentication or that local demo data is stored on a real server.
+
+Keep the architecture modular, maintainable, and easy to extend.
+
+## 4. LANGUAGE AND VISUAL IDENTITY
+
+The entire user interface must be in French.
+
+Use French for:
+- Navigation
+- Page titles
+- Buttons
+- Forms
+- Validation messages
+- Notifications
+- Dashboards
+- Status labels
+- Tables
+- Help and FAQ content
+
+Use a modern university-style design suitable for a Moroccan public university.
+
+Design requirements:
+- Professional and clean interface.
+- Responsive layout for desktop, tablet, and mobile.
+- Sidebar navigation for authenticated users.
+- Top navigation bar with user profile and notifications.
+- Consistent typography and spacing.
+- Accessible colors and readable text.
+- Modern cards, tables, badges, forms, and modals.
+- Clear visual distinction between actions, statuses, and alerts.
+- Loading, empty, success, and error states.
+- Search, filters, pagination, and sorting where appropriate.
+- Light theme as the default.
+- French date formatting.
+
+Use a restrained palette based on dark blue, white, and teal accents.
+
+Avoid excessive gradients, unnecessary animations, oversized cards, and decorative elements that reduce usability.
+
+Create a polished login page and a professional dashboard.
+
+Do not use official logos or claim official institutional affiliation unless the required assets and authorization are provided. Use a neutral academic identity and a clear project label such as "GCD — Version améliorée | Projet académique".
+
+## 5. USER ROLES AND PERMISSIONS
+
+Implement role-based navigation and permissions.
+
+The application must support the following roles:
+
+### A. Candidat
+A candidate must be able to:
+- Create an account.
+- Activate an account in the real backend implementation.
+- Sign in and sign out.
+- Reset a forgotten password.
+- Complete and update their profile.
+- Browse available doctoral subjects.
+- Search and filter subjects.
+- View subject details.
+- Select a subject.
+- Submit a doctoral application.
+- Upload required supporting documents.
+- Check document requirements.
+- Track application status.
+- Receive requests for corrections.
+- Replace or correct documents.
+- Receive a submission confirmation and unique application reference.
+- View interview invitations.
+- Check selection results.
+- Consult official next-step instructions configured by administrators.
+- View their administrative registration checklist when admitted.
+- Access the FAQ and help center.
+- Receive notifications.
+
+### B. Enseignant-chercheur
+A teacher-researcher must be able to:
+- Create and manage doctoral subject proposals.
+- Complete a standardized subject submission form.
+- Enter the subject title, description, discipline, laboratory, establishment, prerequisites, and other relevant fields.
+- Submit a subject for validation.
+- Track the validation status of their subjects.
+- Consult assigned applications when authorized.
+- Evaluate candidate applications using the common evaluation criteria.
+- Add evaluation comments and recommendations.
+- View their authorized evaluation history.
+
+### C. Responsable du laboratoire
+This role must be able to:
+- Review subjects proposed by researchers belonging to the relevant laboratory.
+- Approve, reject, or request corrections to proposed subjects.
+- Add comments explaining the decision.
+- Track subject validation statuses.
+- Consult the history of subject decisions.
+
+### D. Administration
+Administrative users must be able to:
+- View and process candidate applications.
+- Filter and sort applications.
+- Check required documents.
+- Identify missing or invalid documents automatically.
+- Request corrections from candidates.
+- Validate complete and eligible administrative files.
+- Track the status and responsible person for each file.
+- Organize administrative registration.
+- Verify registration documents.
+- Manage candidate communications.
+- Access administrative dashboards and reports.
+
+### E. Responsable de la formation doctorale
+This role must be able to:
+- Coordinate interviews.
+- Manage interview schedules.
+- Assign available time slots.
+- Avoid scheduling conflicts.
+- Send interview invitations.
+- Manage the selection process.
+- Review and validate selection reports.
+- Monitor the progress of doctoral applications.
+
+### F. Jury de sélection
+Jury members must be able to:
+- Access the applications assigned to them.
+- Evaluate candidates using a common digital evaluation grid.
+- Enter scores, comments, and recommendations.
+- Save their evaluations.
+- Consult authorized evaluation summaries.
+- Participate in the consolidation of evaluations and selection deliberations.
+- Access only the information permitted by their role.
+
+### G. Doctorant
+An admitted doctoral student must be able to:
+- Access their doctoral student profile.
+- Consult their administrative status.
+- Submit annual re-registration documents.
+- View the required documents.
+- Track re-registration progress.
+- Receive reminders about deadlines.
+- Consult authorized information concerning their administrative situation.
+
+### H. Directeur de thèse
+A thesis supervisor must be able to:
+- Consult the administrative status of their assigned doctoral students.
+- Track relevant administrative procedures.
+- Access only the information explicitly authorized for their role.
+
+### I. Responsable de la plateforme GCD
+This role must be able to:
+- Manage user accounts and roles.
+- Configure permissions.
+- Monitor platform activity.
+- Consult audit logs.
+- Track changes and identify the origin of modifications.
+- View platform statistics and bottlenecks.
+- Manage general settings, reference data, notifications, and FAQ content.
+- Monitor system errors and operational activity.
+
+IMPORTANT:
+A user may have more than one role when explicitly assigned by an authorized administrator.
+
+Enforce permissions on the backend whenever a backend is configured. Hiding buttons in the frontend alone is not sufficient for real security.
+
+Never expose another candidate's private documents or application details to unauthorized users.
+
+## 6. APPLICATION STRUCTURE
+
+Create the following main areas.
+
+### A. Public area
+
+1. Home page
+2. Login page
+3. Registration page
+4. Account activation page
+5. Password recovery page
+6. Password reset page
+7. Public doctoral subject catalogue
+8. Subject details page
+9. FAQ and help page
+10. Contact or assistance page
+
+The home page should explain the platform's purpose, display relevant navigation, and provide clear actions for candidates and academic staff.
+
+### B. Candidate dashboard
+
+Include:
+- Profile completion indicator.
+- Application summary.
+- Current application status.
+- Missing document alerts.
+- Upcoming deadlines.
+- Interview invitations.
+- Selection results when published.
+- Administrative registration checklist when applicable.
+- Recent notifications.
+- Quick actions.
+
+### C. Researcher dashboard
+
+Include:
+- Number of proposed subjects.
+- Subjects awaiting validation.
+- Approved and rejected subjects.
+- Subject submission form.
+- Subject management table.
+- Authorized candidate evaluations.
+
+### D. Laboratory manager dashboard
+
+Include:
+- Pending subject proposals.
+- Subject details.
+- Validation actions.
+- Comments and correction requests.
+- Decision history.
+
+### E. Administration dashboard
+
+Include:
+- Total applications.
+- Applications awaiting review.
+- Incomplete applications.
+- Applications awaiting correction.
+- Validated applications.
+- Applications awaiting administrative registration.
+- Searchable application table.
+- Document verification interface.
+- Processing queue.
+- Filters by status, subject, laboratory, and relevant administrative criteria.
+
+### F. Doctoral training manager dashboard
+
+Include:
+- Interview calendar.
+- Available time slots.
+- Scheduled interviews.
+- Candidate invitation management.
+- Selection process overview.
+- Selection report review and validation.
+
+### G. Jury dashboard
+
+Include:
+- Assigned applications.
+- Evaluation forms.
+- Common evaluation grid.
+- Evaluation progress.
+- Authorized consolidated evaluation summaries.
+- Deliberation workspace.
+
+### H. Doctoral student dashboard
+
+Include:
+- Administrative profile.
+- Annual re-registration.
+- Required documents checklist.
+- Re-registration status.
+- Deadlines and reminders.
+- Relevant notifications.
+
+### I. Thesis supervisor dashboard
+
+Include:
+- Assigned doctoral students.
+- Authorized administrative status information.
+- Relevant deadlines.
+- Administrative progress indicators.
+
+### J. Platform administrator dashboard
+
+Include:
+- User and role management.
+- Permissions management.
+- Audit logs.
+- Platform activity statistics.
+- Process bottleneck indicators.
+- Notification configuration.
+- FAQ management.
+- Reference data management.
+- System configuration.
+
+## 7. IMPLEMENT ALL 36 SOLUTIONS FROM THE PDF
+
+The following mapping is mandatory.
+
+### PART 1 — Platform access and application submission
+
+**1. Create an account**
+
+Problem: Errors during data entry.
+
+Implement:
+- A simple registration form.
+- Required fields.
+- Email format validation.
+- Password confirmation.
+- Clear validation messages.
+- Prevention of duplicate accounts.
+
+**2. Activate an account**
+
+Problem: Delayed activation or difficulty activating an account.
+
+Implement:
+- Account activation workflow.
+- Resend activation link action.
+- Clear activation status.
+
+Use real email delivery only when an appropriate backend and email service are configured.
+
+**3. Sign in**
+
+Problem: Forgotten passwords and login difficulties.
+
+Implement:
+- Login form.
+- Password recovery.
+- Password reset workflow.
+- Clear error messages.
+
+**4. Browse doctoral subjects**
+
+Problem: Difficulty finding a suitable subject.
+
+Implement:
+- Searchable subject catalogue.
+- Filters by discipline, laboratory, and establishment.
+- Subject details.
+- Sorting and pagination.
+
+**5. Propose a doctoral subject**
+
+Problem: Incomplete or inconsistent subject information.
+
+Implement:
+- Standardized subject submission form.
+- Required fields.
+- Consistent data structure.
+- Validation before submission.
+
+**6. Validate proposed subjects**
+
+Problem: Delays in subject validation.
+
+Implement:
+- Digital validation workflow.
+- Pending, approved, rejected, and correction-requested statuses.
+- Decision comments.
+- Status tracking.
+
+**7. Select a subject and submit an application**
+
+Problem: Incomplete application files.
+
+Implement:
+- Subject selection.
+- Application form.
+- Required-document checklist.
+- File presence and format validation.
+- Clear indication of missing items.
+
+**8. Submit an application**
+
+Problem: Uncertainty about whether submission succeeded.
+
+Implement:
+- Submission confirmation page.
+- Unique application reference.
+- Submission timestamp.
+- Confirmation notification.
+
+**9. Review submitted applications**
+
+Problem: High application volume and repetitive processing.
+
+Implement:
+- Administrative dashboard.
+- Searchable and filterable application table.
+- Automatic sorting.
+- Processing queue.
+- Status-based organization.
+
+### PART 2 — File verification and candidate selection
+
+**10. Check supporting documents**
+
+Implement:
+- Automatic checks for required documents.
+- File type and size validation.
+- Missing-document detection.
+- Clear document verification statuses.
+
+**11. Report incomplete applications**
+
+Implement:
+- Administrative correction requests.
+- Automatic notifications.
+- A clear list of missing or invalid documents.
+- A correction deadline when configured.
+
+**12. Correct and complete an application**
+
+Implement:
+- Personal correction workspace.
+- Display of requested corrections.
+- Document replacement.
+- Correction deadline.
+- Resubmission workflow.
+
+**13. Validate eligible applications**
+
+Implement:
+- Digital workflow.
+- Application statuses.
+- Assignment of a responsible reviewer.
+- Status history and timestamps.
+
+**14. Examine candidate applications**
+
+Implement:
+- Centralized application consultation for authorized researchers.
+- Standardized evaluation criteria.
+- Search and comparison tools.
+- Access control.
+
+**15. Organize interviews**
+
+Implement:
+- Shared interview calendar.
+- Centralized time-slot management.
+- Interview scheduling.
+- Conflict detection.
+- Rescheduling capabilities.
+
+**16. Attend a selection interview**
+
+Implement:
+- Digital interview invitations.
+- Date, time, location, and relevant instructions.
+- Automated reminders.
+- Candidate interview details page.
+
+**17. Evaluate candidates**
+
+Implement:
+- Common digital evaluation grid.
+- Consistent scoring criteria.
+- Comments and recommendations.
+- Validation of completed evaluations.
+
+Use configurable evaluation criteria rather than inventing official USMBA selection rules.
+
+**18. Deliberate on applications**
+
+Implement:
+- Secure evaluation workspace.
+- Consolidated evaluation summaries.
+- Access restrictions.
+- Deliberation status.
+- Traceable decisions.
+
+### PART 3 — Results and administrative registration
+
+**19. Prepare the selection report**
+
+Implement:
+- Automatic generation of a draft selection report from recorded decisions.
+- Preview before validation.
+- Export or print when supported.
+- Human review before finalization.
+
+**20. Validate the selection report**
+
+Implement:
+- Document version management.
+- Review and approval workflow.
+- Version history.
+- Record of validation actions.
+
+**21. Publish results**
+
+Implement:
+- Centralized results page.
+- Publication date.
+- Publication status.
+- Administrative controls for publishing and unpublishing.
+- Access to published results.
+
+**22. Consult results**
+
+Implement:
+- Personalized result display in the candidate dashboard.
+- Individual notifications.
+- Clear next-step instructions.
+
+Do not reveal unpublished results.
+
+**23. Prepare administrative registration**
+
+Implement:
+- Personalized checklist for admitted candidates.
+- Required administrative documents.
+- Completion indicators.
+- Deadline information.
+
+**24. Receive and verify administrative documents**
+
+Implement:
+- Centralized digital registration file.
+- Document verification.
+- Duplicate-document checks where appropriate.
+- Consistency checks between validated information.
+
+**25. Enter doctoral student information**
+
+Implement:
+- Prefilled administrative forms using previously validated data.
+- Reuse existing profile information.
+- Allow authorized corrections.
+- Avoid unnecessary duplicate data entry.
+
+**26. Confirm final registration**
+
+Implement:
+- Clear registration statuses: pending, incomplete, validated, rejected.
+- Administrative confirmation workflow.
+- Status history.
+- Notifications to relevant users.
+
+### PART 4 — Re-registration, tracking, and platform management
+
+**27. Complete annual re-registration**
+
+Implement:
+- Annual re-registration workflow.
+- Deadline calendar.
+- Automatic reminders.
+- Personalized list of required actions.
+
+**28. Submit re-registration documents**
+
+Implement:
+- Re-registration form.
+- Required-document checklist.
+- Pre-submission validation.
+- Clear error messages for incomplete submissions.
+
+**29. Verify re-registration files**
+
+Implement:
+- Organized processing queue.
+- Filtering by status and priority.
+- Reviewer assignment.
+- Processing history.
+
+**30. Track a doctoral student's administrative situation**
+
+Implement:
+- Thesis supervisor dashboard.
+- List of assigned doctoral students.
+- Authorized administrative status information.
+- Privacy-aware access control.
+
+**31. Communicate with candidates and doctoral students**
+
+Implement:
+- Centralized messaging interface.
+- Notifications.
+- Message history.
+- Relevant user and application references.
+- Read and unread indicators where supported.
+
+**32. Answer frequently asked questions**
+
+Implement:
+- Searchable FAQ.
+- Categories and keywords.
+- Answers maintained by authorized administrators.
+- A simple conversational assistant grounded in the platform's approved FAQ and official information entered into the application.
+
+The assistant must not invent official deadlines, eligibility rules, or administrative decisions.
+
+When an answer is unavailable, it must say so and direct the user to the appropriate administrative contact.
+
+**33. Manage accounts and access rights**
+
+Implement:
+- Role assignment.
+- User activation and deactivation.
+- Permission management.
+- Account search.
+- Protected administrative actions.
+
+**34. Track platform operations**
+
+Implement:
+- Audit log.
+- User identification.
+- Action type.
+- Timestamp.
+- Relevant record identifier.
+- Before-and-after information for important changes when appropriate.
+- Restricted access to audit records.
+
+Never record passwords, authentication secrets, or unnecessary sensitive document contents in audit logs.
+
+**35. Monitor platform activity**
+
+Implement:
+- Statistics dashboard.
+- Application volume.
+- Processing time indicators.
+- Pending applications.
+- Delays and bottlenecks.
+- Subject validation statistics.
+- Interview progress.
+- Registration progress.
+
+Use real stored data for metrics whenever available. Label demonstration data clearly.
+
+**36. Coordinate all process stages**
+
+Implement:
+- Centralized data model.
+- Connected workflows between subjects, applications, documents, evaluations, results, registration, and re-registration.
+- Reuse of validated information.
+- Automatic status updates when appropriate.
+- Prevention of unnecessary duplicate operations.
+- Consistent notifications and history.
+
+## 8. CORE WORKFLOWS
+
+Implement the following end-to-end workflows.
+
+### Workflow A: Candidate application
+
+1. Candidate creates an account.
+2. Candidate activates the account when the real authentication backend is configured.
+3. Candidate signs in.
+4. Candidate completes their profile.
+5. Candidate browses and filters doctoral subjects.
+6. Candidate selects a subject.
+7. Candidate completes the application form.
+8. Candidate uploads required documents.
+9. The system validates the form and required document presence.
+10. Candidate submits the application.
+11. The system generates a unique application reference.
+12. The administration reviews the file.
+13. If incomplete, the administration requests corrections.
+14. Candidate corrects the file and resubmits it.
+15. The administration validates the eligible file.
+16. Authorized academic staff review and evaluate the application.
+17. Interview scheduling and evaluation take place when required.
+18. Authorized users consolidate evaluations and record decisions.
+19. The selection report is reviewed and validated.
+20. An administrator publishes the results.
+21. The candidate sees their published result and next steps.
+
+Respect the distinction between technical file validation, administrative eligibility, academic evaluation, and final selection.
+
+### Workflow B: Doctoral subject management
+
+1. Researcher creates a subject proposal.
+2. The system validates required fields.
+3. The subject enters the pending-validation queue.
+4. The laboratory manager reviews it.
+5. The manager approves, rejects, or requests corrections.
+6. The researcher can revise and resubmit the proposal.
+7. Approved subjects become visible in the appropriate catalogue.
+8. The system preserves the subject's validation history.
+
+### Workflow C: Administrative registration
+
+1. An admitted candidate receives their personalized checklist.
+2. The candidate submits the required documents.
+3. The administration verifies the documents.
+4. Missing or inconsistent information triggers a correction request.
+5. Validated profile information is reused to prefill administrative records.
+6. The administration confirms final registration.
+7. The candidate sees the resulting status.
+
+### Workflow D: Annual re-registration
+
+1. The doctoral student opens the annual re-registration section.
+2. The system displays the applicable checklist and deadlines.
+3. The student submits the required documents.
+4. The administration reviews the file.
+5. The student receives correction requests when needed.
+6. The administration records the final status.
+7. The system updates the dashboard and relevant notifications.
+
+### Workflow E: Platform monitoring
+
+1. Authorized users perform actions within their permissions.
+2. Important actions create audit records.
+3. Workflow changes update relevant statuses and histories.
+4. The platform administrator can consult activity indicators.
+5. The dashboard presents statistics calculated from actual available records.
+6. The system identifies pending work and potential bottlenecks.
+
+## 9. DATA MODEL
+
+Design a consistent relational database schema.
+
+Include appropriate entities such as:
+
+- Users
+- Roles
+- UserRoles
+- CandidateProfiles
+- ResearcherProfiles
+- Laboratories
+- Establishments
+- Disciplines
+- DoctoralSubjects
+- SubjectValidationHistory
+- Applications
+- ApplicationDocuments
+- DocumentRequirements
+- CorrectionRequests
+- ApplicationStatusHistory
+- Interviews
+- InterviewTimeSlots
+- Evaluations
+- EvaluationCriteria
+- SelectionDecisions
+- SelectionReports
+- SelectionReportVersions
+- RegistrationFiles
+- RegistrationDocuments
+- ReRegistrations
+- Notifications
+- Messages
+- FAQItems
+- AuditLogs
+- PlatformSettings
+
+Define primary keys, foreign keys, relationships, timestamps, and appropriate constraints.
+
+Use normalized relational structures where appropriate.
+
+Avoid duplicating candidate profile information across unrelated tables.
+
+For Supabase:
+- Provide a clear database schema or SQL migrations.
+- Configure row-level security policies.
+- Restrict private files to authorized users.
+- Validate permissions on protected operations.
+- Use secure authentication practices.
+
+If the real backend is not connected, create realistic demonstration data and isolate storage operations behind reusable services.
+
+## 10. APPLICATION STATUSES
+
+Create centralized status definitions and use them consistently.
+
+For applications, possible statuses include:
+- Brouillon
+- Soumise
+- En cours de vérification
+- Incomplète
+- Correction demandée
+- Corrigée
+- Recevable
+- En cours d'évaluation
+- Entretien programmé
+- En attente de décision
+- Admise
+- Non admise
+
+For doctoral subjects:
+- Brouillon
+- Soumis
+- En attente de validation
+- Correction demandée
+- Validé
+- Rejeté
+
+For administrative registration:
+- En attente
+- Incomplet
+- En cours de vérification
+- Validé
+- Rejeté
+
+These are proposed application statuses, not claims about the official internal status definitions of USMBA.
+
+Define allowed transitions and prevent invalid transitions.
+
+Keep technical upload validation separate from administrative approval and academic decisions.
+
+## 11. NOTIFICATIONS
+
+Implement an in-app notification center.
+
+Notifications should cover:
+- Account-related events.
+- Subject validation decisions.
+- Application submission.
+- Missing or invalid documents.
+- Correction requests.
+- Application status changes.
+- Interview invitations and reminders.
+- Published results.
+- Administrative registration.
+- Annual re-registration deadlines.
+- Relevant administrative messages.
+
+Each notification should contain:
+- A title.
+- A message.
+- A timestamp.
+- A read/unread status.
+- A relevant page or record reference when applicable.
+
+Use in-app notifications in the local prototype.
+
+Only claim that emails are sent when real email delivery has been implemented and configured.
+
+## 12. FILE UPLOADS AND VALIDATION
+
+Create a reusable document upload component.
+
+Requirements:
+- Display the expected document name.
+- Indicate whether the document is required.
+- Validate file extension and size.
+- Display upload status.
+- Show missing and invalid document errors.
+- Allow replacement of documents when authorized.
+- Preserve document verification status.
+- Show correction requests clearly.
+
+For local demonstration mode, clearly explain that uploaded files may not persist like files stored in a production storage service.
+
+For a real backend, use private storage and enforce access permissions.
+
+Do not expose document URLs publicly.
+
+## 13. DASHBOARDS AND DATA VISUALIZATION
+
+Use charts and statistics where they provide meaningful information.
+
+Examples:
+- Applications by status.
+- Subject proposals by validation status.
+- Applications awaiting correction.
+- Interviews scheduled.
+- Registration progress.
+- Re-registration progress.
+- Average processing time.
+- Pending tasks by responsible role.
+
+Every dashboard must respect the current user's permissions.
+
+Provide search, filtering, and detail views rather than displaying only decorative statistics.
+
+Include clear empty states when no records exist.
+
+## 14. USER EXPERIENCE
+
+Implement:
+- Reusable navigation components.
+- Breadcrumbs.
+- Consistent page layouts.
+- Clear confirmation dialogs for important actions.
+- Success and error feedback.
+- Accessible forms.
+- Empty-state illustrations or icons where useful.
+- Loading indicators.
+- Helpful validation messages in French.
+- Responsive tables or mobile-friendly card layouts.
+- Search and filtering for large data lists.
+
+Use realistic French-language sample content relevant to doctoral education in Morocco.
+
+Do not hardcode real candidates' personal information.
+
+Use fictional names and clearly identify demonstration records as examples.
+
+## 15. SECURITY AND DATA INTEGRITY
+
+Implement:
+- Role-based access control.
+- Form validation on the client and server when a server exists.
+- Protected administrative operations.
+- Secure password handling through a proper authentication provider.
+- Private document storage.
+- Audit logs for important changes.
+- Protection against unauthorized record access.
+- Safe handling of errors.
+- Referential integrity.
+- Duplicate submission prevention where appropriate.
+
+Do not store plain-text passwords.
+
+Do not put secret API keys in frontend code.
+
+Do not invent credentials, official institutional policies, or real integrations.
+
+Clearly distinguish working features from features requiring backend configuration.
+
+## 16. TESTING AND ACCEPTANCE CRITERIA
+
+The application is not complete until the following conditions are satisfied:
+
+1. All main pages are accessible through working navigation.
+2. All nine user roles and their permissions are represented.
+3. Role-specific dashboards display relevant information.
+4. Forms validate required fields and display understandable French messages.
+5. Subject search and filters work.
+6. Users can create, view, and update permitted records.
+7. The application submission workflow works from beginning to end in the chosen environment.
+8. Missing documents and correction requests are represented in the workflow.
+9. Subject validation works with status history.
+10. Interview scheduling detects conflicting time slots.
+11. Evaluations use a shared configurable grid.
+12. Selection reports can be generated as drafts and reviewed before publication.
+13. Published results appear only when authorized and available.
+14. Administrative registration and annual re-registration workflows work.
+15. Notifications can be viewed and marked as read.
+16. FAQ search works and does not fabricate official information.
+17. Audit logs record important operations.
+18. Dashboard metrics are based on actual stored records or are clearly labeled as demonstration data.
+19. Data is preserved according to the selected storage architecture.
+20. The interface works on desktop, tablet, and mobile.
+21. All 36 PDF activities are mapped to implemented features.
+22. No primary button is decorative: it must work or clearly indicate that the required integration is not configured.
+23. No major navigation item leads to an empty or broken page.
+24. The project runs without unresolved import errors or avoidable runtime errors.
+
+## 17. IMPLEMENTATION STRATEGY
+
+Build the application in manageable stages:
+
+Stage 1:
+- Application architecture.
+- Design system.
+- Routing.
+- Shared layouts.
+- Authentication interfaces.
+- Role-based navigation.
+
+Stage 2:
+- Database schema.
+- Data models.
+- Demo data.
+- Reusable service layer.
+- Subject catalogue and subject management.
+
+Stage 3:
+- Candidate applications.
+- Document uploads and validation.
+- Administrative review.
+- Correction workflows.
+
+Stage 4:
+- Interviews.
+- Evaluations.
+- Deliberation.
+- Selection reports and results.
+
+Stage 5:
+- Administrative registration.
+- Annual re-registration.
+- Notifications.
+- Messaging and FAQ.
+
+Stage 6:
+- User management.
+- Audit logs.
+- Analytics.
+- Permissions review.
+- Responsive refinement.
+- Testing.
+
+If the environment supports iterative implementation, continue until the application is coherent and usable.
+
+Do not stop after generating a project plan, mockup, or landing page.
+
+If a feature cannot be fully implemented in the current environment, implement the functional frontend and clearly identify the missing backend dependency.
+
+## 18. FINAL DELIVERABLE
+
+Deliver a complete working web application, not just a description of how to build one.
+
+Provide:
+- The complete project source code.
+- A clear folder structure.
+- Reusable components.
+- Working navigation and workflows.
+- Database schema or SQL migrations when applicable.
+- Demo data.
+- Environment variable examples without real secrets.
+- Setup and run instructions.
+- Instructions for configuring the backend.
+- A feature checklist mapping all 36 PDF activities to the implemented features.
+- A list of features that work in demonstration mode and those requiring real integrations.
+
+Start by analyzing the attached PDF and mapping all 36 activities to application modules.
+
+Then implement the application.
+
+Prioritize functional completeness, consistency, security, and usability over decorative complexity.
+
+The final result should look and behave like a serious, modern university doctoral-management platform.

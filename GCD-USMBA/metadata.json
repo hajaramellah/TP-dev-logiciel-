@@ -1,0 +1,10 @@
+{
+  "name": "GCD USMBA — Plateforme Doctorale Améliorée",
+  "description": "Plateforme officielle de gestion du cycle doctoral (GCD) de l'Université Sidi Mohamed Ben Abdellah (USMBA) — Authentification Google, enrôlement par scanner OCR CIN et carte étudiant, suivi du parcours doctoral et pilotage opérationnel.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
